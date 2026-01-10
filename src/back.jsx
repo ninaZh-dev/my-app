@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './back.css'
 
 function Tracker() {
     const [items, setItems] = useState([])
@@ -14,9 +15,10 @@ function Tracker() {
     return (
         <div>
             <h3>Blood Pressure Tracker</h3>
-
+            <form onSubmit={logInput} className="login-input">
             <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Log health activity"/>
         <button onClick={logInput}>Enter</button>
+        </form>
         <h3>Logs</h3>
 
         <ul>

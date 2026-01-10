@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import drawing from './assets/drawing2.png'
 import './App.css'
+import Tracker from './back.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
           Your friendly health tracker :)
         </p>
       </div>
+      <Tracker />
       <p className="read-the-docs">
         We provide the most up to date information, to help YOU stay happy and health!
       </p>
