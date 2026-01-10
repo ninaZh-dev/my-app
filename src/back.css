@@ -1,7 +1,9 @@
+.tracker-page h3 {
+    display: flex;
+}
+
 .login-input {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 15px;
     margin: 30px 0;
 }
@@ -9,7 +11,6 @@
 .login-input input {
     background-color: black;
     color: white;
-    
     padding: 12px 5px;
     font-size: 1.2rem;
     width: 350px;
@@ -21,4 +22,15 @@
 .login-input input::placeholder {
     color: black;
     font-size: 1.1rem;
+}
+
+.tracker-page {
+    position: absolute;
+    align-self: flex-start;
+    left: 40px;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    top: 100px;
+
 }
