@@ -4,19 +4,26 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [clicked, setClicked] = useState(false)
+
+  const handleClick = () => {
+    if (!clicked) {
+      setCount(count + 1)
+      setClicked(true)
+    }
+  }
 
   return (
     <>
       <div>
-        <a href="drawing2.png" target="_blank">
-          <img src={drawing} className="logo" alt="logo" />
-        </a>
+        <img src={drawing} className="logo" alt="logo" />
       </div>
       <h1>HealthPal</h1>
       <div className="card">
-        <button onClick="this.loginTrack=true">
+        <button onClick={handleClick} disabled={clicked}>
           Log-in Streak: {count}
         </button>
+        {clicked && <p>You've logged in! Click the heart to go to your tracker.</p>}
         <p>
           Your friendly health tracker :)
         </p>
