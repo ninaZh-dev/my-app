@@ -35,6 +35,11 @@ body {
   overflow: hidden;
 
   box-shadow: inset 0 0 100px rgba(176, 68, 68, 0.87);
+
+  background-image: radial-gradient(white 20%, transparent 20%), radial-gradient(white 20%, transparent 20%);
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+  
 }
 
 h1 {
