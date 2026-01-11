@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './back.css'
 import './app.css'
+import BPChart from './BPChart.jsx'
 
 function Tracker() {
     const [items, setItems] = useState([])
@@ -9,9 +10,12 @@ function Tracker() {
 
     const logInput = (e) => {
         if (e) e.preventDefault();
-        if (input.trim() !== "") {
+        if (input.trim() !== "" && input.includes("/")) {
             setItems([...items, input])
             setInput("")
+        }
+        else {
+            alert("Please enter format as Sys/Dia (e.g., 120/80");
         }
     }
 
@@ -23,11 +27,11 @@ function Tracker() {
                 <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Log health activity"/>
                 <button type="submit">Enter</button>
             </form>
-
+            {items.length > 0 && <BPChart items={items} />}
             <h3 className="logs">Logs</h3>
 
             <ul>
-                {items.slice(-7).map((item, index) => {
+                {items.slice(-3).map((item, index) => {
                     const [sys, dia] = item.split("/"); 
                     const sysWid = (parseInt(sys) / 200) * 100;
                     const diaWid = (parseInt(dia) / 200) * 100;

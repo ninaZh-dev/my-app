@@ -27,10 +27,41 @@
 .tracker-page {
     position: absolute;
     align-self: flex-start;
-    left: 40px;
+    left: 80px;
     border-radius: 5px;
     padding: 8px 15px;
     cursor: pointer;
     top: 100px;
+    right: 140px;
+
 
 }
+
+.hp-con-back {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.recharts-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+
+}
+
+@media (max-width: 768px) {
+    .tracker-page {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+.log-entry {
+    right: -50px;
+}
+

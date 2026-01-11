@@ -2,6 +2,7 @@ import { useState } from 'react'
 import drawing from './assets/drawing2.png'
 import './App.css'
 import Tracker from './back.jsx'
+import BPChart from './BPChart.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
