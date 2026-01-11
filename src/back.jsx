@@ -1,12 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './back.css'
 import './app.css'
 import BPChart from './BPChart.jsx'
 
 function Tracker() {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState(() => {
+        const savedLogs = localStorage.getItem('bp_log');
+        try {
+            return savedLogs ? JSON.parse(savedLogs) : [];
+        } catch (e) {
+            return [];
+        }
+        
+    });
     const [input, setInput] = useState("")
 
+    useEffect(() => {
+        localStorage.setItem('bp_log', JSON.stringify(items));
+    }, [items]);
 
     const logInput = (e) => {
         if (e) e.preventDefault();
@@ -15,7 +26,7 @@ function Tracker() {
             setInput("")
         }
         else {
-            alert("Please enter format as Sys/Dia (e.g., 120/80");
+            alert("Please enter format as Sys/Dia");
         }
     }
 
@@ -24,7 +35,7 @@ function Tracker() {
             <h3>Blood Pressure Tracker (ex. 120/80)</h3>
 
             <form onSubmit={logInput} className="login-input">
-                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Log health activity"/>
+                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="e.g., 120/80"/>
                 <button type="submit">Enter</button>
             </form>
             {items.length > 0 && <BPChart items={items} />}
